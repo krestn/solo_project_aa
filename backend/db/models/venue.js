@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Venue.associate = function(models) {
     // associations can be defined here
-    Venue.hasMany(models.Event, { foreignKey: 'userId' });
-    
+    Venue.hasMany(models.Event, { foreignKey: 'venueId' });
+
 
   };
   return Venue;

@@ -11,7 +11,8 @@ module.exports = {
       hostId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: "Users" },
+        references: { model:  "Users"},
+          
 
 
       },
@@ -28,7 +29,7 @@ module.exports = {
 
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(1250),
         allowNull: false,
 
       },

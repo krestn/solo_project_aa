@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Rsvps', {
@@ -11,13 +12,11 @@ module.exports = {
       eventId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: "Events" },
-
-
+        references: { model:  "Events"}
       },
       userId: {
         type: Sequelize.INTEGER,
-        references: { model: "Users" },
+        references: { model: 'Users' },
 
       },
       createdAt: {
