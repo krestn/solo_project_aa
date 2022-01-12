@@ -49,6 +49,10 @@ module.exports = (sequelize, DataTypes) => {
   });
   User.associate = function(models) {
     // associations can be defined here
+    User.hasMany(models.Rsvp, { foreignKey: 'userId' });
+    User.hasMany(models.Event, { foreignKey: 'hostId' });
+
+
   };
 
   User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function
