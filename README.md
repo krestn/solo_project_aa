@@ -6,16 +6,16 @@ Live website hosted by Heroku: https://socialite-beta.herokuapp.com/
 
 ## Technologies Used
 
- Javascript
- React
- Redux
- Thunks
- Express
- Sequelize
- PostgreSQL
- Bcrypt
- Heroku
- CSS
+ - Javascript
+ - React
+ - Redux
+ - Thunks
+ - Express
+ - Sequelize
+ - PostgreSQL
+ - Bcrypt
+ - Heroku
+ - CSS
 
 ## Installation
 
@@ -25,6 +25,6 @@ Live website hosted by Heroku: https://socialite-beta.herokuapp.com/
 
 ## Future Features
 
-- [] Events will have calendars
-- [] Users can create / join groups
-- [] Users can search for events by location and/or group info (name, description)
+- Events will have calendars
+- Users can create / join groups
+- Users can search for events by location and/or group info (name, description)
