@@ -40,11 +40,11 @@ const EventList = () => {
                             <div key={`eventDiv-${event.id}`} className='individual-events'>
                                 <li className='list' key={event.id}>
                                     <h3 className='event-title' key={event.name}>{event.name}</h3>
+                                    <p className='event-text' key={event.details}>What: {event.details}</p>
                                     <p className='event-text' key={event.location}>Where: {event.location}</p>
-                                    <div className='event-text' key={event.details}>What: {event.details}</div>
-                                    <div className='event-text' key={event.createdAt}>--- When ---</div>
-                                    <div className='event-text' key={event.date}>{event.date}</div>
-                                    <div className='event-text' key={event.time}>{event.time}</div>
+                                    <p className='event-text' key={event.createdAt}>When: {event.date} {event.time}</p>
+                                    {/* <div className='event-text' key={event.date}>{event.date}</div>
+                                    <div className='event-text' key={event.time}>{event.time}</div> */}
                                 </li>
                                 { (sessionUser.id === event.hostId) &&
                                     <button key={`eventEdit-${event.id}`}
