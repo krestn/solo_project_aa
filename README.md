@@ -1,4 +1,4 @@
-# Sociolite
+# Socialite
 
 Socialite is a spinoff of [Meetup](https://www.meetup.com/) that allows users to create and RSVP to events.
 
