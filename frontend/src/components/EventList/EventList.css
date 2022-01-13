@@ -1,0 +1,71 @@
+.event-area {
+  position: absolute;
+  top: 130px;
+  left: 20px;
+  width: 50%;
+  height: 60%;
+  background-color: rgb(155, 155, 155, 0.69);
+  border-radius: 15px;
+}
+
+p.event-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.events-header {
+  padding-left: 55px;
+  margin: 10px 10px 0px 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 24px;
+  color: #5a0105;
+}
+
+.events-list {
+  height: 300px;
+  overflow-y: auto;
+  margin-top: 0px;
+  padding: 10px;
+  border-top: dotted 1px black;
+}
+
+.list {
+  list-style: none;
+}
+
+.individual-events {
+  border: 3px solid rgb(155, 155, 155);
+  border-radius: 3px;
+  margin-bottom: 3px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  /* background-color: ; */
+}
+
+.event-title {
+  margin: 10px;
+  color: white;
+  font-size: 28px;
+}
+
+.event-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.form-button {
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+  margin: 0px 5px;
+  background-color: #422d59;}
+
+.form-button:hover {
+  background-color: black;
+  cursor: pointer;
+}

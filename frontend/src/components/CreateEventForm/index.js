@@ -1,105 +1,127 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { createEvent } from '../store/pokemon';
-import { useHistory } from 'react-router-dom';
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { createEvent } from '../../store/event'
+import './CreateEventForm.css'
 
-const CreateEventForm = ({ hideForm }) => {
-  const sessionUser = useSelector(state => state.session.user);
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const [hostId, setHostId] = useState(sessionUser.id)
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [capacity, setCapacity] = useState('');
-  const [open, setOpen] = useState('y');
-  const [date, setDate] = useState('');
+const CreateEventForm = () => {
+    const dispatch = useDispatch()
+    const sessionUser = useSelector(state => state.session.user)
+    const history = useHistory()
+    const [hostId, setHostId] = useState(0)
+    const [name, setName] = useState('')
+    const [location, setLocation] = useState('')
+    const [details, setDetails] = useState('')
+    const [date, setDate] = useState('')
+    const [time, setTime] = useState('')
+    const [errors, setErrors] = useState([])
 
-  const updateTitle = (e) => setTitle(e.target.value);
-  const updateDescription = (e) => setDescription(e.target.value);
-  const updateCapacity = (e) => setCapacity(e.target.value);
-  const updateOpen = (e) => setOpen(e.target.value);
-  const updateDate = (e) => setDate(e.target.value);
+    const events = useSelector(state => {
+        return state.event
+    })
+    const errorMessage = useSelector(state => state.errors)
+    // console.log('events in form', events)
+    // console.log('sessionUser', sessionUser)
 
+    // useEffect(() => {
+    //     dispatch(createEvent())
+    // }, [dispatch])
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    if (!sessionUser) return null
+    // hostId = sessionUser.id
 
-    const payload = {
-      hostId,
-      venueId,
-      title,
-      description,
-      capacity,
-      open,
-      date,
-    };
-
-    let createdEvent = await dispatch(createEvent(payload));
-
-    if (createdEvent) {
-      history.push(`/events/${createdEvent.id}`);
-      hideForm();
+    const reset = () => {
+        setName('')
+        setLocation('')
+        setDetails('')
+        setDate('')
+        setTime('')
+        setErrors('')
     }
-  };
 
-  const handleCancelClick = (e) => {
-    e.preventDefault();
-    hideForm();
-  };
+    const addEvent = (e) => {
+        e.preventDefault()
 
-  return (
-    <section className="new-form-holder centered middled">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Title"
-          required
-          value={title}
-          onChange={updateTitle} />
-        <input
-          type="text"
-          placeholder="Event Details"
-          required
-          value={description}
-          onChange={updateDecsription} />
-        <input
-          type="number"
-          placeholder="Capacity"
-          min="1"
-          max="100000"
-          required
-          value={capacity}
-          onChange={updateCapacity} />
-        <input
-          type="text"
-          placeholder="Image URL"
-          value={imageUrl}
-          onChange={updateImageUrl} />
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={updateName} />
-        <input
-          type="text"
-          placeholder="Move 1"
-          value={move1}
-          onChange={updateMove1} />
-        <input
-          type="text"
-          placeholder="Move 2"
-          value={move2}
-          onChange={updateMove2} />
-        <select onChange={updateType}>
-          {pokeTypes.map(type =>
-            <option key={type}>{type}</option>
-          )}
-        </select>
-        <button type="submit">Create new Pokemon</button>
-        <button type="button" onClick={handleCancelClick}>Cancel</button>
-      </form>
-    </section>
-  );
-};
+        const hostId = sessionUser.id
+        const data = {
+            hostId,
+            name,
+            location,
+            details,
+            date,
+            time
+        }
 
-export default CreatePokemonForm;
+        return dispatch(createEvent(data)).then(() => reset())
+            .catch(
+                async(res) => {
+                    const data = await res.json()
+                    if (data && data.errors) setErrors(data.errors)
+                }
+            )
+    }
+
+    // const handleSubmit = async e => {
+    //     e.preventDefault()
+    //     // console.log('inside handleSubmit')
+
+    //     const event = await dispatch(createEvent(data))
+
+
+    //     reset()
+    //     // if (event) {
+    //     //     history.push(`/events`)
+    //     //     // history.push(`/events/${event.id}`)
+    //     // }
+    // }
+
+    return (
+        <section className='new-form'>
+            <h2 className='create-header creater-text'>Host An Event</h2>
+            <ul className='ul-errors'>
+                {errors && errors.map((error, idx) => <li className='error' key={idx}>{error}</li>)}
+            </ul>
+            <form className='create-event-form'>
+                <input
+                    className='create-form-input'
+                    type='name'
+                    placeholder='Event Name'
+                    required
+                    value={ name }
+                    onChange={(e) => setName(e.target.value)} />
+                <input
+                    className='create-form-input'
+                    type='location'
+                    placeholder='Event Location'
+                    required
+                    value={ location }
+                    onChange={(e) => setLocation(e.target.value)} />
+                <input
+                    className='create-form-input'
+                    type='details'
+                    placeholder='Event Details'
+                    required
+                    value={ details }
+                    onChange={(e) => setDetails(e.target.value)} />
+                <input
+                    className='create-form-input'
+                    type='date'
+                    placeholder='Event Date'
+                    required
+                    value={ date }
+                    onChange={(e) => setDate(e.target.value)} />
+                <input
+                    className='create-form-input'
+                    type='time'
+                    placeholder='Event Time'
+                    required
+                    value={ time }
+                    onChange={(e) => setTime(e.target.value)} />
+                <button className='form-submit creater-text' onClick={ addEvent }>Create New Event</button>
+                {/* <button className='hide-form creater-text'>Close</button> */}
+            </form>
+        </section>
+    )
+}
+
+export default CreateEventForm

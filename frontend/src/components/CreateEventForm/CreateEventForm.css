@@ -1,0 +1,80 @@
+.create-event-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.new-form {
+  position: absolute;
+  top: 130px;
+  right: 20px;
+  width: 500px;
+  background-color: rgb(155, 155, 155, 0.69);
+  border-radius: 15px;
+}
+
+
+
+.create-header, .edit-header {
+  padding-left: 55px;
+  margin: 10px 10px 0px 10px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 24px;
+  color: #5a0105;
+}
+
+.creater-text {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.create-form-input {
+  margin: 2px 15px;
+  width: 90%;
+  height: 20px;
+  border-radius: 6px;
+}
+
+.form-submit {
+  width: 30%;
+  /* padding: 25px; */
+  
+}
+
+.form-submit, .form-edit-save {
+  font-size: 14px;
+  border-radius: 5px;
+  color: white;
+  margin: 0px 5px;
+  background-color: #422d59;
+
+  
+}
+
+.editor-area {
+  position: absolute;
+  right: 25px;
+  bottom: 150px;
+  width: 500px;
+  border-radius: 15px;
+  background-color: rgb(155, 155, 155, 0.69);
+}
+
+.ul-errors {
+  margin: 0px;
+}
+
+.edit-form {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-submit:hover, .form-edit-save:hover {
+  background-color: black;
+  cursor: pointer;
+}
