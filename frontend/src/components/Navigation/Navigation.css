@@ -18,6 +18,7 @@ body {
 
 .navleft {
   margin-right: 15px;
+  /* align-items: center; */
 }
 
 #signup, #home-link {
@@ -45,6 +46,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 80.33px;
 }
 
 .nav-ul {
@@ -56,6 +58,7 @@ body {
 height: 50px;
 border-radius: 15px;
 margin-left: 360px;
+/* margin-top: 4%; */
 
 
   
