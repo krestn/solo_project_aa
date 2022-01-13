@@ -1,0 +1,61 @@
+.rsvp-area {
+  position: absolute;
+  right: 145px;
+  bottom: 50px;
+  background-color: rgb(155, 155, 155, 0.69);
+  border-radius: 15px;
+  height: 155px;
+  display: flex;
+  flex-direction: column;
+
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+
+  top: 370px;
+  right: 20px;
+  width: 500px;
+
+}
+
+.attendees-list {
+  height: 125px;
+  overflow-y: scroll;
+  border-top: dotted 1px black;
+  border-bottom: dotted 1px black;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: black;
+}
+
+.rsvp-header {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 24px;
+  padding-left: 15px;
+  margin: 10px 10px 0px 10px;
+  color: #5a0105;
+}
+
+.rsvp-button {
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 14px;
+  color: white;
+  margin: 0px 5px;
+  background-color: #422d59;
+  margin: 0px 5px;
+  width: 30%;
+
+}
+
+.rsvp-button:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+p{
+  font-weight: bold;
+  /* color: white; */
+}
