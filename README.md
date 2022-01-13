@@ -6,16 +6,16 @@ Live website hosted by Heroku: https://socialite-beta.herokuapp.com/
 
 ## Technologies Used
 
-- Javascript
-- React
-- Redux
-- Thunks
-- Express
-- Sequelize
-- PostgreSQL
-- Bcrypt
-- Heroku
-- CSS
+ Javascript
+ React
+ Redux
+ Thunks
+ Express
+ Sequelize
+ PostgreSQL
+ Bcrypt
+ Heroku
+ CSS
 
 ## Installation
 
