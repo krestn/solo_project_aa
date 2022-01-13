@@ -1,8 +1,7 @@
 'use strict';
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Rsvps', {
+    return queryInterface.createTable('RSVPs', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,30 +9,28 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       eventId: {
-        type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model:  "Events"}
+        type: Sequelize.INTEGER,
+        references: { model: 'Events' }
       },
       userId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'Users' },
-
+        references: { model: 'Users' }
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now'),
-
+        defaultValue: Sequelize.fn('now')
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now'),
-
+        defaultValue: Sequelize.fn('now')
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Rsvps');
+    return queryInterface.dropTable('RSVPs');
   }
 };

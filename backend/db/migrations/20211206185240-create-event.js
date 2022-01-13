@@ -9,56 +9,39 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       hostId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model:  "Users"},
-          
-
-
+        references: { model: 'Users' }
       },
-      venueId: {
-        type: Sequelize.INTEGER,
+      name: {
         allowNull: false,
-        references: { model: "Venues"},
-
-
+        type: Sequelize.STRING(50)
       },
-      title: {
-        type: Sequelize.STRING,
+      location: {
         allowNull: false,
-
+        type: Sequelize.STRING
       },
-      description: {
-        type: Sequelize.STRING(1250),
+      details: {
         allowNull: false,
-
-      },
-      capacity: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-
-      },
-      private: {
-        type: Sequelize.STRING,
-        allowNull: false,
-
+        type: Sequelize.STRING
       },
       date: {
-        type: Sequelize.STRING,
         allowNull: false,
-
+        type: Sequelize.STRING
+      },
+      time: {
+        allowNull: false,
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now'),
-
+        defaultValue: Sequelize.fn('now')
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('now'),
-
+        defaultValue: Sequelize.fn('now')
       }
     });
   },
