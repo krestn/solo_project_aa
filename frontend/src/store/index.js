@@ -1,14 +1,17 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import sessionReducer from './session';
-
 import thunk from "redux-thunk";
 
-import events from "./events"
+import sessionReducer from "./session"
+import eventReducer from "./event";
+import rsvpReducer from "./rsvp";
 
+// 9. import reducer above and add to rootReducer below. -> new component
 const rootReducer = combineReducers({
+  // add reducer functions here
   session: sessionReducer,
-  events,
-});
+  event: eventReducer,
+  rsvp: rsvpReducer
+})
 
 let enhancer;
 
